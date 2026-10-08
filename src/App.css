@@ -1,0 +1,59 @@
+body { margin: 0; font-family: Arial, sans-serif; color: #1a1a1a; background: #f3f3f6; }
+.page { max-width: 1650px; margin: 0 auto; padding: 16px 20px; }
+
+.controls { margin-bottom: 16px; }
+.input {
+  width: 100%; box-sizing: border-box; padding: 10px;
+  border: 1px solid #c5d3ea; border-radius: 8px;
+  font: 13px monospace; resize: vertical;
+}
+.print {
+  margin-top: 8px; padding: 8px 18px; border: 0; border-radius: 8px;
+  background: #3b73c9; color: #fff; font-size: 14px; cursor: pointer;
+}
+.error { color: #b3261e; font-size: 14px; }
+
+.grid {
+  display: grid; grid-template-columns: repeat(6, 1fr);
+  column-gap: 20px; row-gap: 24px;
+}
+.day h2 { margin: 0 0 10px; font-size: 20px; }
+.row { display: flex; gap: 12px; margin-bottom: 8px; break-inside: avoid; }
+
+.time {
+  width: 44px; flex-shrink: 0; display: flex; flex-direction: column;
+  justify-content: center; color: #888; font-size: 15px; line-height: 1.35;
+}
+.card {
+  flex: 1; min-width: 0; padding: 6px 10px; border-radius: 8px;
+  border-left: 2px solid #333; background: #c9ddf8;
+}
+.top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+.title { margin: 0; font-size: 16px; }
+.meta { margin: 2px 0 0; font-size: 13px; color: #6b7a90; }
+
+.badge {
+  flex-shrink: 0; padding: 0 7px; border-radius: 10px; margin-top: 1px;
+  font-size: 12px; font-weight: 700; color: #fff; background: #555;
+}
+.badge.lk { background: #d9822b; }
+.badge.lb { background: #3f9a3a; }
+.badge.pr { background: #3b73c9; }
+
+/* ---------- Печать: одна страница A4 альбомной ориентации ---------- */
+@page { size: A4 landscape; margin: 8mm; }
+@media print {
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { background: #fff; }
+  .controls { display: none; }
+  .page { max-width: none; padding: 0; }
+  .grid { column-gap: 10px; row-gap: 12px; }
+  .day { break-inside: avoid; }
+  .day h2 { font-size: 15px; margin-bottom: 6px; }
+  .row { gap: 8px; margin-bottom: 5px; }
+  .time { width: 34px; font-size: 11px; }
+  .card { padding: 3px 7px; border-radius: 6px; }
+  .title { font-size: 11.5px; }
+  .meta { font-size: 9.5px; }
+  .badge { font-size: 9px; padding: 0 5px; }
+}
